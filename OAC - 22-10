@@ -1,0 +1,30 @@
+;2) A partir do programa anterior limite o valor da tecla a somente caracteres
+;minúsculos, utilize para isso as informações da tabela ASCII.
+
+
+LEDENOVO:	IN	00		;LE A TECLA
+		CMP	AL,61		;TESTA SE < 60
+		JS	LEDENOVO	;SE FOR LEDENOVO
+		CMP	AL,7B		;TESTA SE IGUAL A 7B
+		JZ	LEDENOVO	;SE FOR LEDENOVO
+		JNS	LEDENOVO	;TESTA SE É MAIOR
+					;SE FOR LEDENOVO
+		MOV	[90], AL	;ARMAZENA TECLA NO
+					;ENDEREÇO 90
+		END
+
+;3) Faça um programa que preencha os endereços de memória de 6016 a 6F16 com
+;valores a partir de 05 e com incremento de 2. Após inicializar as posições de memória
+;realize a operação de ou-exclusivo entre os conteúdos dos endereços mencionados
+;acima e armazene o resultado final no endereço 7016. Para a construção do laço
+;utilize, como referência, o programa do exercício 3 da folha 1.
+
+	MOV 	AL,5		;VALOR INICIAL A SER ARMAZENADO
+	MOV	BL,60		;VALOR INICIAL NA MEMORIA
+PULA:	MOV 	[BL],AL		;ARMAZENO O VALOR DE AL
+	ADD	AL,2		;INCREMENTO POR 2
+	INC	BL		;INCREMENTO BL PARA ARMAZENAR NO
+	CMP	BL,70		;SE BL < 70, Z=0 E PULO 
+	JNZ	PULA		;SE BL == 70 NÃO PULO MAIS 
+
+	END
