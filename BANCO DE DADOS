@@ -1,0 +1,4 @@
+TEMP1 = funcionario x departamento
+TEMP2 = σfk_dnr=dnr TEMP1
+πnome_f σnome_f = 'MICHEL' TEMP2
+πnome_d σnome_f = 'JOANA' TEMP2
